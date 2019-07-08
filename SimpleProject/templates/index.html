@@ -1,0 +1,28 @@
+<html>
+<head>
+<script type="text/javascript">
+	function httpGetAsync(theUrl, callback) {
+	    var xmlHttp = new XMLHttpRequest();
+	    xmlHttp.onreadystatechange = function() {
+	        if (xmlHttp.readyState == 4 && xmlHttp.status == 200)
+	            callback(xmlHttp.responseText);
+	    }
+	    xmlHttp.open("GET", theUrl, true); // true for asynchronous
+	    xmlHttp.send(null);
+	}
+
+<!--	added to get respon from http://127.0.1:5000/store -->
+	httpGetAsync('http://127.0.1:5000/store', function(response){
+		console.log(response);
+	})
+<!-- 	end of added-->
+</script>
+</head>
+<body>
+
+<div id="myElement">
+	Hello, world!
+</div>
+
+</body>
+</html>
