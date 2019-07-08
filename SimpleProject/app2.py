@@ -1,4 +1,4 @@
-
+# SIMPLE REST API WITH FLASK
 # IMPORT
 from flask import Flask, jsonify, request , render_template       #jsonify is class in Flask
 
