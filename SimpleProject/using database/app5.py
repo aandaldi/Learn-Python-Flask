@@ -4,26 +4,27 @@ from flask import Flask, request
 from flask_restful import Resource, Api, reqparse              #
 from flask_jwt import JWT, jwt_required
 
+
 # import eksternal library
-from security import authenticate, identity                    # import Class from file security.py
+from security5 import authenticate, identity                    # import Class from file security.py
 
 
-app3 = Flask(__name__)
-app3.secret_key = 'Aan'                                        # you must create this secret_key on flask
-api = Api(app3)
+app5 = Flask(__name__)
+app5.secret_key = 'Aan'                                        # you must create this secret_key on flask
+api = Api(app5)
 
-jwt = JWT(app3, authenticate, identity)                        # JWT create endpoint "/auth"
+jwt = JWT(app5, authenticate, identity)                        # JWT create endpoint "/auth"
 
 items = []
 
 
 class Item(Resource):
     parser = reqparse.RequestParser()
-        parser.add_argument('price',
-            type = float,
-            required =True,                                 #should be price is mandatory
-            help = "This field cannot be left blank!"
-        )
+    parser.add_argument('price',
+        type = float,
+        required =True,                                 #should be price is mandatory
+        help = "This field cannot be left blank!"
+    )
     
     @jwt_required()                                           # this will be required token from jwt to access this function
     def get(self, name):
@@ -70,4 +71,4 @@ api.add_resource(Item, '/item/<string:name>')        # this is same like "@app3.
 api.add_resource(ItemList, '/items/')
 
 
-app3.run(port=5000, debug=True)                     # debug to give you error message
+app5.run(port=5000, debug=True)                     # debug to give you error message
