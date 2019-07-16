@@ -8,6 +8,6 @@ app1 = Flask(__name__)
 def home():
     string = 'Hello World, Welcome to my First app using Flask'
     print(string)
-    return string;
+    return string
 
 app1.run(port=5000)
