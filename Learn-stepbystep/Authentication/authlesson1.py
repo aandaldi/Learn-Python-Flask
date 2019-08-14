@@ -13,6 +13,9 @@ def index():
     print(username)
     return resp, "Hello World"
 
+ # using this to delete cookie
+ # resp.set_cookie('users', expires=0)
+
 
 if __name__== "__main__":
     app.run(port=7000, debug=True)
